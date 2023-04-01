@@ -1,0 +1,29 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // Instally my custom latex packages from the github repo
+      "label": "Install custom latex packages",
+      "type": "shell",
+      "command": "wget -c \"https://raw.githubusercontent.com/aalbaali/latex_classes/master/install.sh?token=GHSAT0AAAAAABRI2OOT3SC4C7IOHDIQJ5K4YQRPABA\" -O install_tex.sh && chmod +x install_tex.sh && ./install_tex.sh && rm install_tex.sh",
+      "problemMatcher": []
+    },
+    {
+      // Verify that a custom latex package is properly installed
+      "label": "Inspect TeX custom package",
+      "type": "shell",
+      "command": "if [[ -f $(kpsewhich ${input:package}) ]]; then echo \"File found at \\033[96;1m$(kpsewhich ${input:package})\\033[0m\"; else echo \"\\033[93;1mFile not found\\033[0m\"; fi",
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "package",
+      "type": "promptString",
+      "description": "Package name with extension",
+      "default": "amro-common.sty"
+    }
+  ]
+}

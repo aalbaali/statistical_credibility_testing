@@ -1,0 +1,31 @@
+{
+	"dockerFile": "Dockerfile",
+	"remoteUser": "root",
+	"runArgs": [
+		"--network=host",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt=apparmor:unconfined",
+		"--volume=/tmp/.X10-unix:/tmp/.X11-unix",
+    "--volume=/home/aa/.ssh:/home/root/.ssh",
+    "--volume=/home/aa/.zsh_history:/home/root/.zsh_history"
+	],
+
+	"settings": {
+		"terminal.integrated.profiles.linux": {
+			"zsh": {
+				"path": "/usr/bin/zsh"
+			}
+		},
+		"terminal.integrated.defaultProfile.linux": "zsh"
+	},
+	"extensions": [
+		"ms-azuretools.vscode-docker",
+		"redhat.vscode-yaml",
+		"streetsidesoftware.code-spell-checker",
+		"twxs.cmake",
+		"yzhang.markdown-all-in-one",
+		"James-Yu.latex-workshop",
+		"torn4dom4n.latex-support",
+		"nickfode.latex-formatter"
+	]
+}
